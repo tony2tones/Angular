@@ -28,6 +28,7 @@
 /coverage/*
 /libpeerconnection.log
 npm-debug.log
+node_modules
 testem.log
 /typings
 
