@@ -1,4 +1,5 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,14 +14,19 @@
     <div id="demo" class="container">
 
         <input type="text" v-model="name" number>
-
-        <pre> {{ $data | json }}</pre>
+        <ul>
+            <li v-repeat="name : names">{{ name }}</li>
+            
+            <input type="text" placeholder="Add a new name" v-model="newName" v-on="blur: addName">
+            
+        </ul>
     </div>
 
-    
+
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/0.11.10/vue.min.js"></script>
     <script src="app.js"></script>
 
 </body>
+
 </html>

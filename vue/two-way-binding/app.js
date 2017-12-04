@@ -4,17 +4,15 @@ new Vue({
 
     data: {
 
-        name: 'Toasty'
-
+        names: ['Stan', 'Jane', 'John', 'Taylor', 'Michelle', 'Susan']
+    
     },
 
-    ready: function() {
-        var that = this;
-
-        setInterval(function() {
-            that.name = 'Updated';
-        },5000);
+    methods: {
+        addName: function() {
+            this.names.push(this.newName);
+            this.newName = '';
+        }
     }
-
 
 });
