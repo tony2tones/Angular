@@ -15,13 +15,31 @@
     <div class="Container">
         <h1>Gk weather app</h1>
         <div id="data">
-            <div v-for="location in locationDetails">
-                <!-- <p>{{ location.message }}</p> -->
-                <p v-for="location in locationDetails"> {{ location.weatherType }}</p>
+            <div>
+                <p> {{ locationDetails.message }}</p>
                 <p id="weather"></p>
             </div>
         </div>
-        <button class="btn btn-primary">Do nothing button</button>
+        <hr>
+        <div>
+            <h1>Do you like the weather app?</h1>
+
+            <p>If you do you should then click the like button</p>
+
+            <div class="alert alert-danger" v-show="errorMessage">
+                Oi you were meant to access the browser to know your location!
+            </div>
+
+        </div>
+        <button type="button"
+         class="btn btn-default"
+         >
+            <span class="glyphicon glyphicon-thumbs-up" v-on="click:location()"></span>
+        </button>
+
+        <pre>
+            {{ $data | json}}
+        </pre>
     </div>
 
 
