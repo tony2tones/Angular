@@ -5,15 +5,33 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="dist/css/style.css">
 </head>
 
 <body>
-    <div class="Container">
+    <div class="container">
         <h1>Gk weather app</h1>
-        <div>
-            <p id="data"></p>
+        <div id="data">
+            <hr />
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="row">
+                        <ul class="list-group">
+                            <li class="list-group-item">Description: {{ weather.weatherNiceName }}</li>
+                            <li class="list-group-item">Temp: {{ weather.fTemp }} °F | {{ weather.cTemp }} °C</li>
+                            <li class="list-group-item">Highs: {{ weather.fTempMax }} °F | {{ weather.cTempMax }} °C</li>
+                            <li class="list-group-item">Lows: {{ weather.fTempMin }} °F | | {{ weather.cTempMin }} °C</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="icon">
+                        <img src="assets/imgs/" v-bind:src="weather.icon">
+                    </div>
+                </div>
+            </div>
+            <hr />
         </div>
-        <button class="btn btn-primary">Do nothing button</button>
     </div>
 
     <script src="dist/js/app.js"></script>
