@@ -16,16 +16,15 @@ h1 {
 }
 
 .loading {
-    background-color: rgb(158, 203, 206);
-    position: relative;
-    margin: 200;
-    padding: 23;
-    border-style: solid;
-    border-color: rgb(14, 0, 216);
-    border-width: 1px;
-    border-radius: 5px;    
+    margin: 25% 25% 25% 25%;
+    position: absolute;
+    z-index: 2;
+    border: 1px solid #000;
+    height: 50%;
+    width: 50%;
+    background: #FFF;
 }
 
-.border-left {
-    border-left-width: thin;
+.borderr {
+	border-right: 2px solid #ccc;
 }

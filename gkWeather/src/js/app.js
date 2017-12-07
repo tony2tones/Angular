@@ -6,7 +6,7 @@ import Vue from 'vue';
         data: {
             message: 'Hello guuys',
             errorMessage: false,
-            loading: true,
+            loading: false,
             apiKEY: '53f9d8e4213222cf517d86dc406d67fc',
             baseURL: 'http://api.openweathermap.org/data/2.5/weather',
             weather: {
@@ -32,6 +32,7 @@ import Vue from 'vue';
 
                 const geoSuccess = ({ coords }) => {
                     console.log('its loading....');
+                    this.loading = true;
                     this.getLocation(coords);
                 };
 
