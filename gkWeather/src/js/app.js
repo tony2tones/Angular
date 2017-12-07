@@ -27,6 +27,7 @@ import Vue from 'vue';
         },
 
         methods: {
+         
             location: function () {
                 // 1. get users location
                 // 2. and handle error
@@ -73,7 +74,6 @@ import Vue from 'vue';
                 this.weather.icon = this.weatherIcon(weather[0].icon);
                 //turn off loading div
                 this.loading = false;
-
             },
             weatherIcon: function (iconName) {
                 // return iconName
@@ -106,10 +106,8 @@ import Vue from 'vue';
             },
             apiUrl: function (latitude, longitude) {
                 return `${this.baseURL}?lat=${latitude}&lon=${longitude}&appid=${this.apiKEY}`;
-            },
-            reload:function() {
-                vm.$forceUpdate();
             }
         }
     })
 })();
+
