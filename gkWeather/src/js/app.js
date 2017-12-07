@@ -34,7 +34,6 @@ import Vue from 'vue';
                 };
 
                 const geoError = () => {
-                    console.log('noooo!');
                     this.errorMessage = true;
                 };
 
