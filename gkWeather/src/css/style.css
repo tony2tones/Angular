@@ -10,3 +10,21 @@
     border-width: 1px;
     border-radius: 5px;    
 }
+
+h1 {
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+.loading {
+    margin: 25% 25% 25% 25%;
+    position: absolute;
+    z-index: 2;
+    border: 1px solid #000;
+    height: 50%;
+    width: 50%;
+    background: #FFF;
+}
+
+.borderr {
+	border-right: 2px solid #ccc;
+}
