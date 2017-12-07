@@ -28,3 +28,7 @@ h1 {
 .borderr {
 	border-right: 2px solid #ccc;
 }
+
+.image {
+    width: 170;
+}
