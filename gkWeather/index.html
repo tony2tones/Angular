@@ -11,88 +11,87 @@
 </head>
 
 <body>
-    <div class="container">
+        <div class="container">
 
-        <div id="data">
+            <div id="data">
 
-            <div class="row space">
+                <div class="row space">
+                    <hr />
+                    <h3>Gk weather app</h3>
+                </div>
+
                 <hr />
-                <h3>Gk weather app</h3>
-            </div>
 
-            <hr />
-
-            <div v-show="errorMessage" class="font-weight-light gps_error text-center">
-                Please enable your GPS location to provide you with the latest weather updates.
-            </div>
-
-            <div class="row" v-show="errorMessage === false">
-                <div class="col-md-2">
+                <div v-show="errorMessage" class="font-weight-light gps_error text-center">
+                    Please enable your GPS location to provide you with the latest weather updates.
                 </div>
-                <div class="col-md-4">
-                    <div class="row">
-                        <ul class="list-group">
-                            <li class="list-group-item">Description: {{ weather.weatherNiceName }}</li>
-                            <li class="list-group-item">Temp: {{ weather.fTemp }} °F | {{ weather.cTemp }} °C</li>
-                            <li class="list-group-item">Highs: {{ weather.fTempMax }} °F | {{ weather.cTempMax }} °C</li>
-                            <li class="list-group-item">Lows: {{ weather.fTempMin }} °F | | {{ weather.cTempMin }} °C</li>
-                        </ul>
+
+                <div class="row" v-show="errorMessage === false">
+
+                    <div class="col-md-2">
                     </div>
+
+                    <div class="col-md-4">
+                        <div class="row">
+                            <ul class="list-group">
+                                <li class="list-group-item">Description: {{ weather.weatherNiceName }}</li>
+                                <li class="list-group-item">Temp: {{ weather.fTemp }} °F | {{ weather.cTemp }} °C</li>
+                                <li class="list-group-item">Highs: {{ weather.fTempMax }} °F | {{ weather.cTempMax }} °C</li>
+                                <li class="list-group-item">Lows: {{ weather.fTempMin }} °F | | {{ weather.cTempMin }} °C</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-1 borderr">
+                    </div>
+
+                    <div class="col-md-4 border">
+                        <img id="image" v-bind:src="imageLink" v-show="loading === false" style="width: 170;">
+                    </div>
+
                 </div>
-                <div class="col-md-1 borderr">
+
+                <hr />
+
+                <div v-show="errorMessage === false">
+
+                    <div class="col-md-5">
+                        <p>Refresh page for the latest weather results</p>
+                    </div>
+
+                    <button class="btn btn-primary pull-right" v-on:click="location()">Refresh</button>
+
                 </div>
-                <div class="col-md-4 border">
-                    <img id="image" v-bind:src="imageLink" v-show="loading === false" style="width: 170;">
+
+                <div v-if="loading" v-cloak>
+                    <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw text-center"></i>
+                    <span>Loading...</span>
                 </div>
-            </div>
-            <hr />
-            <div v-show="errorMessage === false">
-                <div class="col-md-5">
-                    <p>Refresh page for the latest weather results</p>
-                </div>
-                <button class="btn btn-primary pull-right" v-on:click="location()">Refresh</button>
-            </div>
-            <div v-if="loading" v-cloak>
-                <i class="fa fa-circle-o-notch fa-spin fa-3x fa-fw text-center"></i>
-                <span>Loading...</span>
+
             </div>
 
         </div>
-
-
-    </div>
     </div>
     <footer>
-
         <div class="footer-bottom">
-
             <div class="container">
-
                 <div class="row">
 
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-
                         <div class="copyright">
-
                             © 2015, Tony2Tones , All rights reserved
-
                         </div>
-
                     </div>
 
                     <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-
                         <div class="design">
                             <a>Web Design & Development by Tony2Tones</a>
-
                         </div>
-
                     </div>
 
                 </div>
 
             </div>
-
         </div>
 
     </footer>
