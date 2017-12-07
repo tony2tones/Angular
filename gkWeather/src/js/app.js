@@ -6,6 +6,7 @@ import Vue from 'vue';
         data: {
             message: 'Hello guuys',
             errorMessage: false,
+            loading: true,
             apiKEY: '53f9d8e4213222cf517d86dc406d67fc',
             baseURL: 'http://api.openweathermap.org/data/2.5/weather',
             weather: {
@@ -19,41 +20,43 @@ import Vue from 'vue';
                 icon: '',
             },
         },
-    
+
         mounted: function () {
             this.location();
         },
-    
+
         methods: {
             location: function () {
                 // 1. get users location
                 // 2. and handle error
 
                 const geoSuccess = ({ coords }) => {
+                    console.log('its loading....');
                     this.getLocation(coords);
                 };
 
                 const geoError = () => {
                     this.errorMessage = true;
+                    this.loading = false;
                 };
 
                 if (navigator.geolocation) {
+
                     var gl = navigator.geolocation;
                     gl.getCurrentPosition(geoSuccess, geoError);
                 } else {
                     console.log('your browser sucks!');
                 }
             },
-            getLocation: function({ latitude, longitude }) {
+            getLocation: function ({ latitude, longitude }) {
                 // 1. get weather 
                 const self = this;
-
                 $.getJSON(this.apiUrl(latitude, longitude), function (data) {
                     console.log(data);
                     self.mapData(data)
                 });
             },
-            mapData: function({ 
+            mapData: function ({
                 main: { temp, temp_min, temp_max },
                 weather
             }) {
@@ -65,30 +68,22 @@ import Vue from 'vue';
                 this.weather.cTempMin = this.convertKelvinToCelcius(temp_min);
                 this.weather.weatherNiceName = weather[0].description;
                 this.weather.icon = this.weatherIcon(weather[0].icon);
+                //turn off loading div
+                this.loading = false;
+                
             },
-            weatherIcon: function(iconName) {
+            weatherIcon: function (iconName) {
                 return `${iconName}.png`;
+                
             },
-            convertKelvinToCelcius: function(deg) {
+            convertKelvinToCelcius: function (deg) {
                 return Math.round(parseInt(deg) - 273.15);
             },
-            convertKelvinToFahrenheit: function(deg) {
+            convertKelvinToFahrenheit: function (deg) {
                 return Math.round(parseInt(deg) * (9 / 5) - 459.67);
             },
-            apiUrl: function(latitude, longitude) {
+            apiUrl: function (latitude, longitude) {
                 return `${this.baseURL}?lat=${latitude}&lon=${longitude}&appid=${this.apiKEY}`;
-            },
-            convert: function(degree) {
-                fTemp = (degree) * (9 / 5) - 459.67;
-                console.log(fTemp);
-                this.locationDetails.push({
-                    fTemp : this.fTemp
-                });
-            },
-            addWeather: function () {
-                this.locationDetails.push({
-                    weatherType: this.newWeather
-                });
             }
         }
     })

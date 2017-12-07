@@ -10,3 +10,22 @@
     border-width: 1px;
     border-radius: 5px;    
 }
+
+h1 {
+    font-family: "Times New Roman", Georgia, Serif;
+}
+
+.loading {
+    background-color: rgb(158, 203, 206);
+    position: relative;
+    margin: 200;
+    padding: 23;
+    border-style: solid;
+    border-color: rgb(14, 0, 216);
+    border-width: 1px;
+    border-radius: 5px;    
+}
+
+.border-left {
+    border-left-width: thin;
+}

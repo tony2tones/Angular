@@ -15,11 +15,13 @@
         <div id="data">
             <hr />
 
-            <div v-if="errorMessage" class="font-weight-light gps_error text-center">
-               Please enable us to use your location to provide you with the weather.
+            <div v-show="errorMessage" class="font-weight-light gps_error text-center">
+                Please enable us to use your location to provide you with the weather.
             </div>
 
-            <div class="row" v-if="errorMessage === false">
+            <div class="row" v-show="errorMessage === false">
+                <div class="col-md-2">
+                </div>
                 <div class="col-md-4">
                     <div class="row">
                         <ul class="list-group">
@@ -30,13 +32,20 @@
                         </ul>
                     </div>
                 </div>
-                <div class="col-md-4 border-left-0">
+                <div class="col-md-1">
+                </div>
+                <div class="col-md-4 border-left-0 border-left">
                     <div class="icon">
                         <img src="assets/imgs/" v-bind:src="weather.icon">
+                        <p>toasty</p>
                     </div>
                 </div>
             </div>
             <hr />
+
+            <div v-show="loading" class="font-weight-light loading text-center w3-animate-bottom">
+                Loading...
+            </div>
         </div>
     </div>
 
