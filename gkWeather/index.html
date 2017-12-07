@@ -16,9 +16,14 @@
         <h1>Gk weather app</h1>
         <div id="data">
             <div>
-                <p> {{ locationDetails.message }}</p>
-                <p id="weather"></p>
+                <ul>
+                    <li> {{ locationDetails.message }}</li>
+                    <li id="weather"></li>
+                    <li id="temp"></li>
+                    <li id="weather"></li>
+                </ul>
             </div>
+            <!-- <button v-on="click:temp()">Change weather</button> -->
         </div>
         <hr>
         <div>
@@ -26,15 +31,13 @@
 
             <p>If you do you should then click the like button</p>
 
-            <!-- <div class="alert alert-danger" v-show="errorMessage">
+            <div class="alert alert-danger" v-show="active">
                 Oi you were meant to access the browser to know your location!
-            </div> -->
+            </div>
 
         </div>
-        <button type="button"
-         class="btn btn-default"
-         >
-            <span class="glyphicon glyphicon-thumbs-up" v-on="click:location()"></span>
+        <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-thumbs-up" v-on="click:location"></span>
         </button>
 
         <pre>

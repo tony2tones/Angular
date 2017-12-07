@@ -9,7 +9,7 @@ new Vue({
                 fTemp: ''
             },
 
-        errorMessage: true
+        active: true
     },
 
     mounted: function () {
@@ -31,27 +31,32 @@ new Vue({
 
                         $.getJSON(api, function (data) {
                             weatherType = data.weather[0].description;
-                            // this.weatherType.push(locationDetails.weatherType);
-                            kTemp = data.main.temp;
+                            this.weatherType.push({
+                                kTemp: this.weatherType
+                            });
+                            // kTemp = data.main.temp;
                             // convert(kTemp);
                             fTemp = (kTemp) * (9 / 5) - 459.67;
                             fTemp = parseFloat(fTemp).toFixed(0);
                             console.log(fTemp);
                             console.log(kTemp);
                             console.log(weatherType);
-                            this.errorMessage = false;
-                            $("#weather").html("weather type: " + weatherType + ' ' + kTemp + ' ');
+                            this.active = false;
+                            $("#weather").html("weather : " + weatherType);
+                            $("#temp").html('Temperature : ' + kTemp);
+
                         });
                     });
                 }
             });
 
         },
-        convert: function(degree) {
-            fTemp = (degree) * (9 / 5) - 459.67;
-            console.log(fTemp);
+        temp: function(kTemp) {
+            // fTemp = (temp) * (9 / 5) - 459.67;
+            temp = (kTemp) - 275;
+            console.log(temp);
             this.locationDetails.push({
-                fTemp : this.fTemp
+                cTemp : this.temp
             });
         },
         addWeather: function () {
