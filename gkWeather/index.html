@@ -42,7 +42,7 @@
                 <div class="col-md-1 borderr">
                 </div>
                 <div class="col-md-4 border">
-                    <img id="image" v-show="loading === false" style="width: 170;" src=''>
+                    <img id="image" v-bind:src="imageLink" v-show="loading === false" style="width: 170;">
                 </div>
             </div>
             <hr />
