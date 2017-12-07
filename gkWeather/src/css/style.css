@@ -1,4 +1,5 @@
 
+
 .gps_error {
     color: #D8000C;
     background-color: #FFD2D2;
@@ -11,7 +12,8 @@
     border-radius: 5px;    
 }
 
-h1 {
+.padding {
+    margin-top: 100px;
     font-family: "Times New Roman", Georgia, Serif;
 }
 
@@ -25,12 +27,26 @@ h1 {
     background: #FFF;
 }
 
-.borderr {
-	border-right: 2px solid #ccc;
+.border {
+    position: inherit;
+    min-height: 190px;
+    padding-left: 61px;
 }
 
-div.image {
-    width: 170;
-    background-image: url(http://s4.thingpic.com/images/4D/94bamyUgjUvLDFdSCssoxwCg.jpeg);
-    /* src:url(http://s4.thingpic.com/images/4D/94bamyUgjUvLDFdSCssoxwCg.jpeg); */
+#image {
+    height: 162px;
+}
+
+.footer-bottom {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        padding: 1rem;
+        background-color: #2034aa;
+        text-align: center;
+        color: white;
+}
+.design a {
+    color: white;
 }

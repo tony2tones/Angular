@@ -9,6 +9,7 @@ import Vue from 'vue';
             loading: false,
             apiKEY: '53f9d8e4213222cf517d86dc406d67fc',
             baseURL: 'http://api.openweathermap.org/data/2.5/weather',
+            src: '',
             weather: {
                 cTemp: '',
                 fTemp: '',
@@ -72,20 +73,30 @@ import Vue from 'vue';
                 this.weather.icon = this.weatherIcon(weather[0].icon);
                 //turn off loading div
                 this.loading = false;
-                
+
             },
             weatherIcon: function (iconName) {
-                // return `${iconName}.png`;
-                console.log(iconName);
-                if(iconName === '01d'){
-                    $("#image").attr("src","https://tctechcrunch2011.files.wordpress.com/2015/08/clouds.jpg");
-                }else if(iconName === '02d'){
-                    $("#image").attr("src","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Cumulus_Clouds_Over_Jamaica.jpg/1280px-Cumulus_Clouds_Over_Jamaica.jpg");
-                }else if(iconName === '03d'){
-                    $("#image").attr("src","https://tctechcrunch2011.files.wordpress.com/2015/08/clouds.jpg");
-                }else if(iconName === '04d'){
-                    $("#image").attr("src","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Cumulus_Clouds_Over_Jamaica.jpg/1280px-Cumulus_Clouds_Over_Jamaica.jpg");
-                
+                // return iconName
+                this.src = iconName;
+                console.log(this.src);
+                if (iconName === '01d' || '01n') {
+                    $("#image").attr("src", "https://static.pexels.com/photos/557782/pexels-photo-557782.jpeg");
+                } else if (iconName === '02d' || '02n') {
+                    $("#image").attr("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Cumulus_Clouds_Over_Jamaica.jpg/1280px-Cumulus_Clouds_Over_Jamaica.jpg");
+                }
+                else if (iconName === '03d' || '03n') {
+                    $("#image").attr("src", "https://pre00.deviantart.net/30aa/th/pre/f/2013/317/f/b/dark_rain_by_zyres-d6u4gcw.png");
+                } else if (iconName === '04d' || '04n') {
+                    //dark clouds
+                    $("#image").attr("src", "https://static.pexels.com/photos/557782/pexels-photo-557782.jpeg");
+                } else if (iconName === '09d' || '09n') {
+                    $("#image").attr("src", "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Cumulus_Clouds_Over_Jamaica.jpg/1280px-Cumulus_Clouds_Over_Jamaica.jpg");
+                } else if (iconName === '10d' || '10n') {
+                    $("#image").attr("src", "https://tctechcrunch2011.files.wordpress.com/2015/08/clouds.jpg");
+                } else if (iconName === '11d' || '11n') {
+                    //dark clouds
+                    $("#image").attr("src", "https://static.pexels.com/photos/557782/pexels-photo-557782.jpeg");
+                }
             },
             convertKelvinToCelcius: function (deg) {
                 return Math.round(parseInt(deg) - 273.15);
@@ -95,6 +106,9 @@ import Vue from 'vue';
             },
             apiUrl: function (latitude, longitude) {
                 return `${this.baseURL}?lat=${latitude}&lon=${longitude}&appid=${this.apiKEY}`;
+            },
+            reload:function() {
+                vm.$forceUpdate();
             }
         }
     })
