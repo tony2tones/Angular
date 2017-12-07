@@ -1,0 +1,12 @@
+
+.gps_error {
+    color: #D8000C;
+    background-color: #FFD2D2;
+    position: relative;
+    margin: 200;
+    padding: 23;
+    border-style: solid;
+    border-color: #D8000C;
+    border-width: 1px;
+    border-radius: 5px;    
+}

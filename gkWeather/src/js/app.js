@@ -5,7 +5,7 @@ import Vue from 'vue';
         el: '#data',
         data: {
             message: 'Hello guuys',
-            errorMessage: true,
+            errorMessage: false,
             apiKEY: '53f9d8e4213222cf517d86dc406d67fc',
             baseURL: 'http://api.openweathermap.org/data/2.5/weather',
             weather: {
@@ -34,7 +34,7 @@ import Vue from 'vue';
                 };
 
                 const geoError = () => {
-                    console.log('noooo!');
+                    this.errorMessage = true;
                 };
 
                 if (navigator.geolocation) {
