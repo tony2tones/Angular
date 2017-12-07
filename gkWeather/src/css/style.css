@@ -29,6 +29,8 @@ h1 {
 	border-right: 2px solid #ccc;
 }
 
-.image {
+div.image {
     width: 170;
+    background-image: url(http://s4.thingpic.com/images/4D/94bamyUgjUvLDFdSCssoxwCg.jpeg);
+    /* src:url(http://s4.thingpic.com/images/4D/94bamyUgjUvLDFdSCssoxwCg.jpeg); */
 }

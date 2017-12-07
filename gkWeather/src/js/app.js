@@ -37,6 +37,7 @@ import Vue from 'vue';
                 };
 
                 const geoError = () => {
+                    //throw an error message to the user
                     this.errorMessage = true;
                     this.loading = false;
                 };
@@ -74,7 +75,16 @@ import Vue from 'vue';
                 
             },
             weatherIcon: function (iconName) {
-                return `${iconName}.png`;
+                // return `${iconName}.png`;
+                console.log(iconName);
+                if(iconName === '01d'){
+                    $("#image").attr("src","https://tctechcrunch2011.files.wordpress.com/2015/08/clouds.jpg");
+                }else if(iconName === '02d'){
+                    $("#image").attr("src","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Cumulus_Clouds_Over_Jamaica.jpg/1280px-Cumulus_Clouds_Over_Jamaica.jpg");
+                }else if(iconName === '03d'){
+                    $("#image").attr("src","https://tctechcrunch2011.files.wordpress.com/2015/08/clouds.jpg");
+                }else if(iconName === '04d'){
+                    $("#image").attr("src","https://upload.wikimedia.org/wikipedia/commons/thumb/b/b7/Cumulus_Clouds_Over_Jamaica.jpg/1280px-Cumulus_Clouds_Over_Jamaica.jpg");
                 
             },
             convertKelvinToCelcius: function (deg) {
