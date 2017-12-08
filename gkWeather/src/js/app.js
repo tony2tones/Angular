@@ -34,7 +34,6 @@ import Vue from 'vue';
                 // 2. and handle error
 
                 const geoSuccess = ({ coords }) => {
-                    console.log('its loading....');
                     this.loading = true;
                     this.getLocation(coords);
                 };
@@ -57,7 +56,6 @@ import Vue from 'vue';
                 // 1. get weather 
                 const self = this;
                 $.getJSON(this.apiUrl(latitude, longitude), function (data) {
-                    console.log(data);
                     self.mapData(data)
                 });
             },
